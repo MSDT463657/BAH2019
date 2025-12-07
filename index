@@ -1,1 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2019 Bahrain Grand Prix - Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #ffffff;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, #e10600 0%, #ff1e00 100%);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(225, 6, 0, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .section h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #e10600;
+            border-bottom: 3px solid #e10600;
+            padding-bottom: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .grid-item {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #e10600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .grid-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(225, 6, 0, 0.3);
+        }
+
+        .grid-item .position {
+            font-size: 2em;
+            font-weight: bold;
+            color: #e10600;
+            display: inline-block;
+            width: 50px;
+        }
+
+        .grid-item .driver {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .grid-item .team {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+
+        .grid-item .time {
+            font-size: 1.1em;
+            color: #ffd700;
+            font-family: 'Courier New', monospace;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        thead {
+            background: #e10600;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        tbody tr {
+            transition: background 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background: rgba(225, 6, 0, 0.2);
+        }
+
+        .podium td {
+            font-weight: bold;
+        }
+
+        .pos-1 { border-left: 4px solid #ffd700; }
+        .pos-2 { border-left: 4px solid #c0c0c0; }
+        .pos-3 { border-left: 4px solid #cd7f32; }
+
+        .dnf {
+            opacity: 0.6;
+            font-style: italic;
+        }
+
+        .video-container {
+            text-align: center;
+            margin-top: 40px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .video-container h2 {
+            margin-bottom: 20px;
+            color: #e10600;
+        }
+
+        iframe {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+        }
+
+        .penalty {
+            font-size: 0.85em;
+            color: #ff9900;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .section h2 {
+                font-size: 1.5em;
+            }
+
+            table {
+                font-size: 0.9em;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>2019 BAHRAIN GRAND PRIX</h1>
+            <p>28 - 31 March 2019 | Sakhir</p>
+        </div>
+
+        <!-- QUALIFYING SECTION -->
+        <div class="section">
+            <h2>🏁 Final Starting Grid</h2>
+            <div class="grid">
+                <div class="grid-item">
+                    <span class="position">1</span>
+                    <div class="driver">Charles LECLERC</div>
+                    <div class="team">Scuderia Ferrari Mission Winnow</div>
+                    <div class="time">1:27.866</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">2</span>
+                    <div class="driver">Sebastian VETTEL</div>
+                    <div class="team">Scuderia Ferrari Mission Winnow</div>
+                    <div class="time">1:28.160</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">3</span>
+                    <div class="driver">Lewis HAMILTON</div>
+                    <div class="team">Mercedes AMG Petronas Motorsport</div>
+                    <div class="time">1:28.190</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">4</span>
+                    <div class="driver">Valtteri BOTTAS</div>
+                    <div class="team">Mercedes AMG Petronas Motorsport</div>
+                    <div class="time">1:28.256</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">5</span>
+                    <div class="driver">Max VERSTAPPEN</div>
+                    <div class="team">Aston Martin Red Bull Racing</div>
+                    <div class="time">1:28.752</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">6</span>
+                    <div class="driver">Kevin MAGNUSSEN</div>
+                    <div class="team">Rich Energy Haas F1 Team</div>
+                    <div class="time">1:28.757</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">7</span>
+                    <div class="driver">Carlos SAINZ</div>
+                    <div class="team">McLaren F1 Team</div>
+                    <div class="time">1:28.813</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">8</span>
+                    <div class="driver">Kimi RAIKKONEN</div>
+                    <div class="team">Alfa Romeo Racing</div>
+                    <div class="time">1:29.022</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">9</span>
+                    <div class="driver">Lando NORRIS</div>
+                    <div class="team">McLaren F1 Team</div>
+                    <div class="time">1:29.043</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">10</span>
+                    <div class="driver">Daniel RICCIARDO</div>
+                    <div class="team">Renault F1 Team</div>
+                    <div class="time">1:29.488</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">11</span>
+                    <div class="driver">Romain GROSJEAN *</div>
+                    <div class="team">Rich Energy Haas F1 Team</div>
+                    <div class="time">1:29.015</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">12</span>
+                    <div class="driver">Alexander ALBON</div>
+                    <div class="team">Red Bull Toro Rosso Honda</div>
+                    <div class="time">1:29.513</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">13</span>
+                    <div class="driver">Pierre GASLY</div>
+                    <div class="team">Aston Martin Red Bull Racing</div>
+                    <div class="time">1:29.526</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">14</span>
+                    <div class="driver">Sergio PEREZ</div>
+                    <div class="team">SportPesa Racing Point F1 Team</div>
+                    <div class="time">1:29.756</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">15</span>
+                    <div class="driver">Daniil KVYAT</div>
+                    <div class="team">Red Bull Toro Rosso Honda</div>
+                    <div class="time">1:29.854</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">16</span>
+                    <div class="driver">Antonio GIOVINAZZI</div>
+                    <div class="team">Alfa Romeo Racing</div>
+                    <div class="time">1:30.026</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">17</span>
+                    <div class="driver">Nico HULKENBERG</div>
+                    <div class="team">Renault F1 Team</div>
+                    <div class="time">1:30.034</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">18</span>
+                    <div class="driver">Lance STROLL</div>
+                    <div class="team">SportPesa Racing Point F1 Team</div>
+                    <div class="time">1:30.217</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">19</span>
+                    <div class="driver">George RUSSELL</div>
+                    <div class="team">ROKiT Williams Racing</div>
+                    <div class="time">1:31.759</div>
+                </div>
+
+                <div class="grid-item">
+                    <span class="position">20</span>
+                    <div class="driver">Robert KUBICA</div>
+                    <div class="team">ROKiT Williams Racing</div>
+                    <div class="time">1:31.799</div>
+                </div>
+            </div>
+            <div class="penalty">* Car 8 - 3 place grid penalty - Impeding another driver - Stewards' document no. 23</div>
+        </div>
+
+        <!-- RACE RESULTS SECTION -->
+        <div class="section">
+            <h2>🏆 Final Race Classification</h2>
+            <p style="margin-bottom: 20px; opacity: 0.8;">After 57 Laps - 308.238 km</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>POS</th>
+                        <th>NO</th>
+                        <th>DRIVER</th>
+                        <th>TEAM</th>
+                        <th>LAPS</th>
+                        <th>TIME/RETIRED</th>
+                        <th>PTS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="podium pos-1">
+                        <td>1</td>
+                        <td>44</td>
+                        <td>Lewis HAMILTON</td>
+                        <td>Mercedes AMG Petronas Motorsport</td>
+                        <td>57</td>
+                        <td>1:34:24.295</td>
+                        <td>25</td>
+                    </tr>
+                    <tr class="podium pos-2">
+                        <td>2</td>
+                        <td>77</td>
+                        <td>Valtteri BOTTAS</td>
+                        <td>Mercedes AMG Petronas Motorsport</td>
+                        <td>57</td>
+                        <td>+2.980</td>
+                        <td>18</td>
+                    </tr>
+                    <tr class="podium pos-3">
+                        <td>3</td>
+                        <td>16</td>
+                        <td>Charles LECLERC</td>
+                        <td>Scuderia Ferrari Mission Winnow</td>
+                        <td>57</td>
+                        <td>+6.131</td>
+                        <td>15</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>33</td>
+                        <td>Max VERSTAPPEN</td>
+                        <td>Aston Martin Red Bull Racing</td>
+                        <td>57</td>
+                        <td>+6.408</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>Sebastian VETTEL</td>
+                        <td>Scuderia Ferrari Mission Winnow</td>
+                        <td>57</td>
+                        <td>+36.668</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>4</td>
+                        <td>Lando NORRIS</td>
+                        <td>McLaren F1 Team</td>
+                        <td>57</td>
+                        <td>+45.754</td>
+                        <td>8</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>7</td>
+                        <td>Kimi RAIKKONEN</td>
+                        <td>Alfa Romeo Racing</td>
+                        <td>57</td>
+                        <td>+47.470</td>
+                        <td>6</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>10</td>
+                        <td>Pierre GASLY</td>
+                        <td>Aston Martin Red Bull Racing</td>
+                        <td>57</td>
+                        <td>+58.094</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>23</td>
+                        <td>Alexander ALBON</td>
+                        <td>Red Bull Toro Rosso Honda</td>
+                        <td>57</td>
+                        <td>+62.697</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>11</td>
+                        <td>Sergio PEREZ</td>
+                        <td>SportPesa Racing Point F1 Team</td>
+                        <td>57</td>
+                        <td>+63.696</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>99</td>
+                        <td>Antonio GIOVINAZZI</td>
+                        <td>Alfa Romeo Racing</td>
+                        <td>57</td>
+                        <td>+64.599</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>26</td>
+                        <td>Daniil KVYAT</td>
+                        <td>Red Bull Toro Rosso Honda</td>
+                        <td>56</td>
+                        <td>+1 LAP</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>20</td>
+                        <td>Kevin MAGNUSSEN</td>
+                        <td>Rich Energy Haas F1 Team</td>
+                        <td>56</td>
+                        <td>+1 LAP</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>18</td>
+                        <td>Lance STROLL</td>
+                        <td>SportPesa Racing Point F1 Team</td>
+                        <td>56</td>
+                        <td>+1 LAP</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>63</td>
+                        <td>George RUSSELL</td>
+                        <td>ROKiT Williams Racing</td>
+                        <td>56</td>
+                        <td>+1 LAP</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>88</td>
+                        <td>Robert KUBICA</td>
+                        <td>ROKiT Williams Racing</td>
+                        <td>55</td>
+                        <td>+2 LAPS</td>
+                        <td>0</td>
+                    </tr>
+                    <tr class="dnf">
+                        <td>17</td>
+                        <td>27</td>
+                        <td>Nico HULKENBERG</td>
+                        <td>Renault F1 Team</td>
+                        <td>53</td>
+                        <td>DNF</td>
+                        <td>0</td>
+                    </tr>
+                    <tr class="dnf">
+                        <td>18</td>
+                        <td>3</td>
+                        <td>Daniel RICCIARDO</td>
+                        <td>Renault F1 Team</td>
+                        <td>53</td>
+                        <td>DNF</td>
+                        <td>0</td>
+                    </tr>
+                    <tr class="dnf">
+                        <td>19</td>
+                        <td>55</td>
+                        <td>Carlos SAINZ</td>
+                        <td>McLaren F1 Team</td>
+                        <td>53</td>
+                        <td>DNF</td>
+                        <td>0</td>
+                    </tr>
+                    <tr class="dnf">
+                        <td>NC</td>
+                        <td>8</td>
+                        <td>Romain GROSJEAN</td>
+                        <td>Rich Energy Haas F1 Team</td>
+                        <td>16</td>
+                        <td>DNF</td>
+                        <td>0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 20px; padding: 15px; background: rgba(255, 215, 0, 0.1); border-left: 4px solid #ffd700; border-radius: 5px;">
+                <strong>FASTEST LAP:</strong> Charles LECLERC - 1:33.411 on lap 38 (208.575 km/h)
+            </div>
+        </div>
+
+        <!-- VIDEO SECTION -->
+        <div class="video-container">
+            <h2>📺 Race Highlights</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/0VjWY--QdMA?si=LVx6jULUkMzZHk7N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+</html>
