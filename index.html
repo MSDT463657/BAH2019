@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Official results from the 2019 Bahrain Grand Prix - Qualifying and Race Classification">
+    <meta name="author" content="msdt463657">
     <title>2019 Bahrain Grand Prix - Results</title>
     <style>
         * {
@@ -62,23 +64,133 @@
         }
 
         .grid {
+            max-width: 1000px;
+            margin: 0 auto 20px auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin-bottom: 20px;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            position: relative;
         }
 
         .grid-item {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #e10600;
+            background: #ffffff;
+            color: #000000;
+            padding: 0;
+            border-radius: 0;
+            border-left: 5px solid #000000;
+            border-right: 2px solid #000000;
+            border-top: 2px solid #000000;
+            border-bottom: 2px solid #000000;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            margin-bottom: 8px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            overflow: hidden;
         }
 
         .grid-item:hover {
             transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(225, 6, 0, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Left column - odd positions */
+        .grid-item:nth-child(odd) {
+            grid-column: 1;
+        }
+
+        /* Right column - even positions with vertical offset */
+        .grid-item:nth-child(even) {
+            grid-column: 2;
+            margin-top: 30px;
+        }
+
+        .grid-item .position {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #ffffff;
+            background: #000000;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 80px;
+            flex-shrink: 0;
+        }
+
+        .grid-item .info {
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 12px;
+            overflow: hidden;
+            min-width: 0;
+        }
+
+        .grid-item .driver-info {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+            line-height: 0.96;
+        }
+
+        .grid-item .car-number {
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.05;
+        }
+
+        .grid-item .driver {
+            font-size: 0.56em;
+            font-weight: bold;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.05;
+        }
+
+        .grid-item .team {
+            font-size: 0.65em;
+            opacity: 0.8;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.05;
+        }
+
+        .grid-item .time {
+            font-size: 0.9em;
+            font-weight: normal;
+            color: #000000 !important;
+            font-family: 'Courier New', monospace;
+            white-space: nowrap;
+            flex-shrink: 0;
+            padding-left: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .grid-item:nth-child(odd),
+            .grid-item:nth-child(even) {
+                grid-column: 1;
+                margin-top: 0;
+            }
         }
 
         .grid-item .position {
@@ -206,148 +318,254 @@
             <p>28 - 31 March 2019 | Sakhir</p>
         </div>
 
+        <div style="text-align: center; margin-bottom: 30px;">
+            <a href="https://www.youtube.com/watch?v=0VjWY--QdMA" target="_blank" style="color: #e10600; font-size: 1.2em; text-decoration: none; font-weight: bold; padding: 15px 30px; background: rgba(225, 6, 0, 0.1); border: 2px solid #e10600; border-radius: 8px; display: inline-block; transition: all 0.3s ease;">
+                🎥 Watch Race Highlights on YouTube
+            </a>
+        </div>
+
         <!-- QUALIFYING SECTION -->
         <div class="section">
             <h2>🏁 Final Starting Grid</h2>
             <div class="grid">
                 <div class="grid-item">
                     <span class="position">1</span>
-                    <div class="driver">Charles LECLERC</div>
-                    <div class="team">Scuderia Ferrari Mission Winnow</div>
-                    <div class="time">1:27.866</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">16</div>
+                            <div class="driver">Charles LECLERC</div>
+                            <div class="team">Scuderia Ferrari Mission Winnow</div>
+                        </div>
+                        <div class="time">1:27.866</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">2</span>
-                    <div class="driver">Sebastian VETTEL</div>
-                    <div class="team">Scuderia Ferrari Mission Winnow</div>
-                    <div class="time">1:28.160</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">5</div>
+                            <div class="driver">Sebastian VETTEL</div>
+                            <div class="team">Scuderia Ferrari Mission Winnow</div>
+                        </div>
+                        <div class="time">1:28.160</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">3</span>
-                    <div class="driver">Lewis HAMILTON</div>
-                    <div class="team">Mercedes AMG Petronas Motorsport</div>
-                    <div class="time">1:28.190</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">44</div>
+                            <div class="driver">Lewis HAMILTON</div>
+                            <div class="team">Mercedes AMG Petronas Motorsport</div>
+                        </div>
+                        <div class="time">1:28.190</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">4</span>
-                    <div class="driver">Valtteri BOTTAS</div>
-                    <div class="team">Mercedes AMG Petronas Motorsport</div>
-                    <div class="time">1:28.256</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">77</div>
+                            <div class="driver">Valtteri BOTTAS</div>
+                            <div class="team">Mercedes AMG Petronas Motorsport</div>
+                        </div>
+                        <div class="time">1:28.256</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">5</span>
-                    <div class="driver">Max VERSTAPPEN</div>
-                    <div class="team">Aston Martin Red Bull Racing</div>
-                    <div class="time">1:28.752</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">33</div>
+                            <div class="driver">Max VERSTAPPEN</div>
+                            <div class="team">Aston Martin Red Bull Racing</div>
+                        </div>
+                        <div class="time">1:28.752</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">6</span>
-                    <div class="driver">Kevin MAGNUSSEN</div>
-                    <div class="team">Rich Energy Haas F1 Team</div>
-                    <div class="time">1:28.757</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">20</div>
+                            <div class="driver">Kevin MAGNUSSEN</div>
+                            <div class="team">Rich Energy Haas F1 Team</div>
+                        </div>
+                        <div class="time">1:28.757</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">7</span>
-                    <div class="driver">Carlos SAINZ</div>
-                    <div class="team">McLaren F1 Team</div>
-                    <div class="time">1:28.813</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">55</div>
+                            <div class="driver">Carlos SAINZ</div>
+                            <div class="team">McLaren F1 Team</div>
+                        </div>
+                        <div class="time">1:28.813</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">8</span>
-                    <div class="driver">Kimi RAIKKONEN</div>
-                    <div class="team">Alfa Romeo Racing</div>
-                    <div class="time">1:29.022</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">7</div>
+                            <div class="driver">Kimi RAIKKONEN</div>
+                            <div class="team">Alfa Romeo Racing</div>
+                        </div>
+                        <div class="time">1:29.022</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">9</span>
-                    <div class="driver">Lando NORRIS</div>
-                    <div class="team">McLaren F1 Team</div>
-                    <div class="time">1:29.043</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">4</div>
+                            <div class="driver">Lando NORRIS</div>
+                            <div class="team">McLaren F1 Team</div>
+                        </div>
+                        <div class="time">1:29.043</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">10</span>
-                    <div class="driver">Daniel RICCIARDO</div>
-                    <div class="team">Renault F1 Team</div>
-                    <div class="time">1:29.488</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">3</div>
+                            <div class="driver">Daniel RICCIARDO</div>
+                            <div class="team">Renault F1 Team</div>
+                        </div>
+                        <div class="time">1:29.488</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">11</span>
-                    <div class="driver">Romain GROSJEAN *</div>
-                    <div class="team">Rich Energy Haas F1 Team</div>
-                    <div class="time">1:29.015</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">8</div>
+                            <div class="driver">Romain GROSJEAN *</div>
+                            <div class="team">Rich Energy Haas F1 Team</div>
+                        </div>
+                        <div class="time">1:29.015</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">12</span>
-                    <div class="driver">Alexander ALBON</div>
-                    <div class="team">Red Bull Toro Rosso Honda</div>
-                    <div class="time">1:29.513</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">23</div>
+                            <div class="driver">Alexander ALBON</div>
+                            <div class="team">Red Bull Toro Rosso Honda</div>
+                        </div>
+                        <div class="time">1:29.513</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">13</span>
-                    <div class="driver">Pierre GASLY</div>
-                    <div class="team">Aston Martin Red Bull Racing</div>
-                    <div class="time">1:29.526</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">10</div>
+                            <div class="driver">Pierre GASLY</div>
+                            <div class="team">Aston Martin Red Bull Racing</div>
+                        </div>
+                        <div class="time">1:29.526</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">14</span>
-                    <div class="driver">Sergio PEREZ</div>
-                    <div class="team">SportPesa Racing Point F1 Team</div>
-                    <div class="time">1:29.756</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">11</div>
+                            <div class="driver">Sergio PEREZ</div>
+                            <div class="team">SportPesa Racing Point F1 Team</div>
+                        </div>
+                        <div class="time">1:29.756</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">15</span>
-                    <div class="driver">Daniil KVYAT</div>
-                    <div class="team">Red Bull Toro Rosso Honda</div>
-                    <div class="time">1:29.854</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">26</div>
+                            <div class="driver">Daniil KVYAT</div>
+                            <div class="team">Red Bull Toro Rosso Honda</div>
+                        </div>
+                        <div class="time">1:29.854</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">16</span>
-                    <div class="driver">Antonio GIOVINAZZI</div>
-                    <div class="team">Alfa Romeo Racing</div>
-                    <div class="time">1:30.026</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">99</div>
+                            <div class="driver">Antonio GIOVINAZZI</div>
+                            <div class="team">Alfa Romeo Racing</div>
+                        </div>
+                        <div class="time">1:30.026</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">17</span>
-                    <div class="driver">Nico HULKENBERG</div>
-                    <div class="team">Renault F1 Team</div>
-                    <div class="time">1:30.034</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">27</div>
+                            <div class="driver">Nico HULKENBERG</div>
+                            <div class="team">Renault F1 Team</div>
+                        </div>
+                        <div class="time">1:30.034</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">18</span>
-                    <div class="driver">Lance STROLL</div>
-                    <div class="team">SportPesa Racing Point F1 Team</div>
-                    <div class="time">1:30.217</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">18</div>
+                            <div class="driver">Lance STROLL</div>
+                            <div class="team">SportPesa Racing Point F1 Team</div>
+                        </div>
+                        <div class="time">1:30.217</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">19</span>
-                    <div class="driver">George RUSSELL</div>
-                    <div class="team">ROKiT Williams Racing</div>
-                    <div class="time">1:31.759</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">63</div>
+                            <div class="driver">George RUSSELL</div>
+                            <div class="team">ROKiT Williams Racing</div>
+                        </div>
+                        <div class="time">1:31.759</div>
+                    </div>
                 </div>
 
                 <div class="grid-item">
                     <span class="position">20</span>
-                    <div class="driver">Robert KUBICA</div>
-                    <div class="team">ROKiT Williams Racing</div>
-                    <div class="time">1:31.799</div>
+                    <div class="info">
+                        <div class="driver-info">
+                            <div class="car-number">88</div>
+                            <div class="driver">Robert KUBICA</div>
+                            <div class="team">ROKiT Williams Racing</div>
+                        </div>
+                        <div class="time">1:31.799</div>
+                    </div>
                 </div>
             </div>
             <div class="penalty">* Car 8 - 3 place grid penalty - Impeding another driver - Stewards' document no. 23</div>
@@ -557,12 +775,6 @@
             <div style="margin-top: 20px; padding: 15px; background: rgba(255, 215, 0, 0.1); border-left: 4px solid #ffd700; border-radius: 5px;">
                 <strong>FASTEST LAP:</strong> Charles LECLERC - 1:33.411 on lap 38 (208.575 km/h)
             </div>
-        </div>
-
-        <!-- VIDEO SECTION -->
-        <div class="video-container">
-            <h2>📺 Race Highlights</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/0VjWY--QdMA?si=LVx6jULUkMzZHk7N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
     </div>
 </body>
