@@ -318,46 +318,43 @@
             }
 
             table {
-                font-size: 0.7em;
+                font-size: 0.65em;
                 display: block;
                 overflow-x: auto;
                 -webkit-overflow-scrolling: touch;
                 width: 100%;
+                margin: 0;
             }
 
-            thead, tbody, th, td, tr {
-                display: block;
+            table thead, table tbody, table tr {
+                display: table;
+                display: table-row-group;
             }
 
-            thead tr {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
+            table thead {
+                display: table-header-group;
             }
 
-            tr {
-                margin-bottom: 10px;
-                border: 1px solid rgba(255, 255, 255, 0.2);
-                border-radius: 5px;
-                padding: 8px;
+            table tr {
+                display: table-row;
             }
 
-            td {
-                border: none;
-                position: relative;
-                padding-left: 40%;
-                text-align: right;
+            table th, table td {
+                display: table-cell;
             }
 
-            td:before {
-                position: absolute;
-                left: 6px;
-                width: 35%;
-                padding-right: 10px;
+            th, td {
+                padding: 4px 2px;
+                font-size: 0.95em;
+            }
+
+            /* Make team names shorter on mobile */
+            table th:nth-child(4),
+            table td:nth-child(4) {
+                max-width: 80px;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 white-space: nowrap;
-                text-align: left;
-                font-weight: bold;
-                content: attr(data-label);
             }
         }
 
